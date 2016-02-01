@@ -1,0 +1,45 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\RequirePackage{tcolorbox}
+
+\newcommand{\MyTitlePage}[2]{
+
+\begin{center}
+    \begin{columns}
+      \begin{column}{10cm}
+        \begin{center}
+          \begin{titleredbox}
+            \begin{center}
+              \textbf{\Large \color{white} {#1} }
+            \end{center}
+          \end{titleredbox}
+        \end{center}
+      \end{column}
+    \end{columns}
+    \vspace{-0.2cm}
+    \begin{columns}
+      \begin{column}{9.5cm}
+        \begin{center}
+          \begin{titleredbox}
+            \begin{center}           
+
+              \begin{tabular}{ll}
+              {\bf Hanyang University} & \underline{Javier Brochero}, Taejeong Kim\\ 
+              \multirow{2}{*}{\bf Korea University} & Suyong Choi, Youn Jung Roh\\
+                                     & Youngkwon Jo \\
+              {\bf SungKyunKwan University} & Junghwan Goh, Chanwook Hwang, \\
+              & Intae Yu
+              \end{tabular}
+                  {#2}
+            \end{center}
+          \end{titleredbox}
+        \end{center}
+      \end{column}
+    \end{columns}
+    \vspace{0.5cm}
+    \includegraphics[width=0.7\textwidth]{/home/brochero/LaTeX/Presentations/Logos/HanyangKoreaSungkyunCMS.png}
+  \end{center}
+
+
+}
+
+\endinput
