@@ -1,0 +1,269 @@
+%\def\jobname{info} % Change name of *.toc, *.snm, *.out, *.nav and *.aux
+\documentclass[8pt]{beamer}
+\usepackage{verbatim} 
+\usepackage{multicol} 
+\usepackage{multirow} 
+\usepackage{wasysym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{slashbox}
+
+\usepackage{graphicx} 
+\usepackage{beamerthemesplit}
+
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{colortbl}
+
+\usepackage{tikz}
+
+\usepackage{tabularx} 
+\usepackage{array} 
+
+%---------------------------------------------------
+% Physics Symbols
+\usepackage{/home/brochero/LaTeX/Presentations/PhySymbols} 
+%---------------------------------------------------
+
+%---------------------------------------------------
+% Cancel Terms
+\usepackage{cancel} 
+%---------------------------------------------------
+
+%---------------------------------------------------
+% Floating textblock*
+\usepackage[absolute,overlay]{textpos}
+%---------------------------------------------------
+
+%---------------------------------------------------
+% Justify all the presentation
+%\renewcommand{\raggedright}{\leftskip=0pt \rightskip=0pt plus 0cm} 
+%---------------------------------------------------
+
+%---------------------------------------------------
+% Renumerate appendix pages
+\usepackage{/home/brochero/LaTeX/Presentations/appendixnumberbeamer}
+%---------------------------------------------------
+
+%---------------------------------------------------
+% Hyperlinks and reference color
+\usepackage{hyperref}
+\let\oldhref=\href
+%\renewcommand{\href}[2]{\oldhref{#1}{\cref #2}}
+%---------------------------------------------------
+
+
+%---------------------------------------------------
+% Justified
+\usepackage{ragged2e}
+%\addtobeamertemplate{block begin}{}{\justifying}  %Justify all the blocks
+%---------------------------------------------------
+%---------------------------------------------------
+% Beamer Theme 
+\useoutertheme{infolines}
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% Setup beamer colors
+\setbeamercolor{palette primary}{use=structure,fg=white,bg=black!100!white}
+\setbeamercolor{palette secondary}{use=structure,fg=white,bg=black!100!white}
+\setbeamercolor{palette tertiary}{use=structure,fg=white,bg=black!100!white}
+\setbeamercolor{titlelike}{parent=structure,bg=red!80!black,fg=white} 
+\setbeamercolor{frametitle}{fg=white,bg=red!80!white}
+%\setbeamercolor{frametitle}{fg=red!80!black,bg=white}
+\setbeamercolor{background canvas}{bg=white}
+
+% Blocks
+\setbeamercolor{block title}{bg=red!80!black,fg=white} 
+\setbeamercolor{block body}{bg=black!90!white,fg=white} 
+\setbeamercolor{block title example}{bg=black!90!white,fg=white} 
+\setbeamercolor{block body example}{bg=red!80!black,fg=white} 
+
+% Itemize
+\useinnertheme{circles}% Solid \item symbols
+\setbeamercolor*{item}{use=structure, fg=red!80!black}
+
+%---------------------------------------------------
+
+%---------------------------------------------------
+% Image in the title frame
+\setbeamertemplate{frametitle}{
+  \begin{frametitleredbox}
+    %\rlap{\raisebox{-\dp\strutbox}{\includegraphics[height=0.9cm,width=0.925\textwidth]{cms-detector.pdf}}} % Bkg image
+    \vspace{-0.3cm}\strut{~~\huge\insertframetitle}\strut\hfill\vspace{-0.3cm} % Title
+    \raisebox{-2mm}{
+      \includegraphics[height=0.90cm]{../Logos/CMSlogo} % Logo in the title
+    }
+  \end{frametitleredbox}
+}
+%---------------------------------------------------
+
+%---------------------------------------------------
+% Framed blocks: tcolorbox
+
+\usepackage{/home/brochero/LaTeX/Presentations/myownbox}
+%---------------------------------------------------
+
+
+%---------------------------------------------------
+% LaTeX Font
+
+%\usefonttheme[onlymath]{serif}
+%\usefonttheme[stillsansseriftitle]{serif}
+%\usefonttheme[]{structuresmallcapsserif}
+
+%\setbeamerfont{frametitle}{shape=\scshape}
+
+%\renewcommand*\rmdefault{ppl}
+%\renewcommand*\rmdefault{iwona}
+%\usepackage[T1]{fontenc} %% Universal doesn't work with T1
+%\usepackage{fourier}
+%\usepackage[OT1]{fontenc} %% Universal doesn't work with T1
+%\usepackage[math]{kurier}%{arev}%[math]{iwona}
+%[condensed,math]{iwona}
+%\renewcommand\mathfamilydefault{\rmdefault} % Default LaTeX math font
+% Table
+%\newcolumntype{Y}{>{\centering\arraybackslash}X}
+%---------------------------------------------------
+
+
+%---------------------------------------------------
+% Symbols
+\usepackage{pifont}
+\newcommand{\WOI}{{\color{cyan} \huge \ding{46}}}
+\newcommand{\OK}{{\color{green} \huge \ding{52}}}
+\newcommand{\BAD}{{\color{red} \huge \ding{56}}}
+%---------------------------------------------------
+
+%---------------------------------------------------
+% Color words
+\definecolor{pink}{rgb}{1,0.5,0.5}
+\newcommand{\cblue}{\color{blue}}
+\newcommand{\cgreen}{\color{black!50!green}}
+\newcommand{\cred}{\color{red}}
+\newcommand{\cgray}{\color{white!30!black}}
+%\def\Tiny{ \font\Tinyfont = cmr10 at 4pt \relax  \Tinyfont}
+\def\tinyA{\fontsize{7pt}{7pt} \selectfont}
+\def\Tiny{\fontsize{5pt}{5pt} \selectfont}
+\newcommand{\cref}{\Tiny\color{white!20!black}}
+
+
+%---------------------------------------------------
+
+%\beamersetuncovermixins{\opaqueness<1>{25}}{\opaqueness<2->{15}}
+
+%\setlength{\unitlength}{1mm}
+%---------------------------------------------------
+%---------------------------------------------------
+% Margin setup
+\setbeamersize{text margin left=0.1cm,text margin right=0.1cm}
+%---------------------------------------------------
+%---------------------------------------------------
+% My own title page
+\usepackage{/home/brochero/LaTeX/Presentations/mytitlepage} 
+%---------------------------------------------------
+
+%---------------------------------------------------
+%---------------------------------------------------
+%---------------------------------------------------
+%---------------------------------------------------
+\begin{document}
+
+%-----------------------------------------
+% TITLE
+%-----------------------------------------
+\def\MyTitle{Measurement of the $\xsecttbb/\xsecttjj$ Ratio in the Single Lepton Channel}
+\title[Measurement of the $\xsecttbb/\xsecttjj$ Ratio]{}
+\author[J. Brochero]{}
+\institute[Hanyang University]{}
+\date{\today} 
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{/home/brochero/Pictures/Physics/cms-detector2.jpg}}
+
+\begin{frame}
+\MyTitlePage{\MyTitle}{Javier Brochero} 
+\end{frame}
+}
+
+
+%-----------------------------------------
+% SLIDES
+%-----------------------------------------
+
+% Watermark Example
+%% {
+%%   \usebackgroundtemplate{
+%%  \vbox to \paperheight{\vfil\hbox to \paperwidth{\hfil\includegraphics[width=0.5\paperwidth]{/home/brochero/Pictures/Logos/universidadcantabriaWathermark}\hfil}\vfil}
+%% }
+
+%% \begin{frame}
+%% \frametitle{Outline}
+
+
+%% \end{frame}
+%% }
+
+%-----------------------------------------
+%-----------------------------------------
+
+\begin{frame}{title}
+
+\end{frame}
+
+%-----------------------------------------
+%-----------------------------------------
+
+
+%-----------------------------------------
+%-----------------------------------------
+
+
+%-----------------------------------------
+%-----------------------------------------
+
+
+%-----------------------------------------
+%-----------------------------------------
+
+
+%-----------------------------------------
+%-----------------------------------------
+
+
+%-----------------------------------------
+%-----------------------------------------
+
+
+%-----------------------------------------
+% APPENDIX
+%-----------------------------------------
+
+\appendix
+\section{Backup}
+{
+  \usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{../Logos/Backup_15}}
+\begin{frame}
+%\MyLogo
+\color{white}{\Huge 
+\begin{center}
+\fontsize{72pt}{90pt}\selectfont
+\bf BACKUP
+\end{center}
+}
+\end{frame}  
+
+}
+
+
+%-----------------------------------------
+%-----------------------------------------
+
+%-----------------------------------------
+%-----------------------------------------
+
+\end{document}
+%---------------------------------------------------
+%---------------------------------------------------
+%---------------------------------------------------
+%---------------------------------------------------
+

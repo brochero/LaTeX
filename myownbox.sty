@@ -1,0 +1,65 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{myownbox}[2014/08/07 v0.01 LaTeX package for my own boxes]
+
+\RequirePackage{tcolorbox}
+
+\tcbuselibrary{skins}
+
+% General tcolorbox options
+\tcbset{
+leftupper=0cm,
+rightupper=0.1cm,
+lefttitle=0cm,
+colframe=red!80!black, 
+colback=white, 
+arc=0.1mm}
+
+% tcolor box example
+%begin{tcolorbox}[title=Title,colframe=,colback=...]
+
+% Title box
+\newtcolorbox{titleredbox}{fonttitle=\bfseries, enhanced jigsaw, opacityframe=1., opacityback=0.8, colback=red!80!black, coltext=black!0!white, colframe=white!90!black, boxrule=2pt,arc=3mm}
+
+% Frame box
+\newtcolorbox{frametitleredbox}{fonttitle=\bfseries, enhanced jigsaw, opacityframe=1., opacityback=0.8, colback=red!80!black, coltext=black!10!white, colframe=red!50!black, boxrule=1.5pt,arc=2mm}
+%\newtcolorbox{frametitleredbox}{fonttitle=\bfseries, enhanced jigsaw,opacityframe=1., opacityback=0.8, coltext=black!0!white, boxrule=1.5pt, arc=3mm, interior style={left color=red!80!black,right color=white}, frame style={left color=,right color=white}}
+
+% backup box
+\newtcolorbox{backupbox}{fonttitle=\bfseries, enhanced jigsaw, opacityframe=1., opacityback=0.8, colback=red!80!black, coltext=black!0!white, colframe=white!90!black, boxrule=2pt,arc=3mm}
+
+% Red boxes
+\newtcolorbox{redbox}[1]{fonttitle=\bfseries, coltitle=white!95!black,title=#1}
+\newtcolorbox{fillredbox}[1]{fonttitle=\bfseries, coltitle=white!95!black, enhanced jigsaw, opacityback=0.8, colback=red!10!white, title=#1}
+% Black boxes
+\newtcolorbox{blackbox}[1]{colframe=black!95!white, fonttitle=\bfseries, coltitle=white!95!black, title=#1}
+\newtcolorbox{fillblackbox}[1]{colframe=black!95!white, fonttitle=\bfseries, coltitle=white!95!black, enhanced jigsaw, opacityback=0.8, colback=black!10!white, title=#1}
+% blue boxes
+\newtcolorbox{bluebox}[1]{colframe=black!50!blue, fonttitle=\bfseries, coltitle=white!95!black,title=#1}
+\newtcolorbox{fillbluebox}[1]{colframe=black!50!blue, fonttitle=\bfseries, coltitle=white!95!black, enhanced jigsaw, opacityback=0.8, colback=blue!10!white, title=#1}
+% Green boxes
+\newtcolorbox{greenbox}[1]{colframe=black!50!green, fonttitle=\bfseries, coltitle=white!95!black,title=#1}
+\newtcolorbox{fillgreenbox}[1]{colframe=black!50!green, fonttitle=\bfseries, coltitle=white!95!black, enhanced jigsaw, opacityback=0.8, colback=green!10!white, title=#1}
+% Orange boxes
+\newtcolorbox{orangebox}[1]{colframe=black!10!orange, fonttitle=\bfseries, coltitle=white!95!black, title=#1}
+\newtcolorbox{fillorangebox}[1]{colframe=black!10!orange, fonttitle=\bfseries, coltitle=white!95!black, enhanced jigsaw, opacityback=0.8, colback=orange!10!white, title=#1}
+
+\newtcolorbox{fancybox}[2][]{%
+enhanced,
+coltext=red!80!black,
+colback=black!10!white,
+colframe=black,top=-1mm,
+%enlarge top by=\baselineskip/2+1mm,
+%enlarge top at break by=0mm,
+%pad at break=2mm,
+fontupper=\normalsize,
+overlay unbroken and first={
+\node[rectangle,
+  rounded corners,
+  draw=red!80!black,
+  fill=red!10!white,
+  inner sep=1mm,
+  anchor=west,font=\small]
+at ([xshift=4.5mm]frame.north west) {\strut\textbf{#2}};},
+#1}
+
+\endinput
